@@ -1,5 +1,17 @@
 # DRAL-OA Matcher - Setup and Usage Guide
 
+## FIRST: Reassemble the ZIP File
+
+Before starting, you need to reassemble the split ZIP file:
+
+```bash
+./reassemble.sh
+```
+
+This will combine `DRAL_OA_part_aa` and `DRAL_OA_part_ab` into `DRAL_OA.zip`, then extract it.
+
+---
+
 This guide provides step-by-step instructions to build, deploy, and test the DRAL-OA (Deep Reinforcement Alignment Learning - Ontology Alignment) matcher using Docker.
 
 ## Prerequisites
@@ -88,7 +100,20 @@ curl -I http://localhost:8080
 
 Expected response: `HTTP/1.1 404 Not Found` (this is normal for the root path)
 
-## Step 6: Run Ontology Matching MAKE SURE YOU HAVE human.owl , mouse.owl and reference.rdf in the folder
+## Step 6: Extract the DRAL_OA Files
+
+First, reassemble and extract the DRAL_OA files:
+
+```bash
+# Reassemble the split ZIP file
+./reassemble.sh
+
+# Extract the contents
+unzip DRAL_OA.zip
+```
+
+## Step 7: Run Ontology Matching MAKE SURE YOU HAVE human.owl , mouse.owl and reference.rdf in the folder
+
 
 Navigate to the root directory containing your ontology files and run the matching:
 
@@ -99,9 +124,16 @@ curl -F 'source=@human.owl' -F 'target=@mouse.owl' -F 'inputAlignment=@reference
 
 **Processing time:** ~15-20 minutes (depending on ontology size and system performance)
 
-## Expected Files
+## Repository Files
 
-Ensure you have these files in your root directory:
+This repository contains:
+- `DRAL_OA_part_aa` and `DRAL_OA_part_ab` - Split ZIP file parts (use `./reassemble.sh` to combine)
+- `reassemble.sh` - Script to reassemble the split ZIP file
+- `README.md` - This setup guide
+
+## Expected Files After Extraction
+
+After running `./reassemble.sh` and `unzip DRAL_OA.zip`, ensure you have these files:
 - `human.owl` - Source ontology
 - `mouse.owl` - Target ontology  
 - `reference.rdf` - Input alignment/reference mappings
