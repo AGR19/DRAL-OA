@@ -12,6 +12,12 @@ This will combine `DRAL_OA_part_aa` and `DRAL_OA_part_ab` into `DRAL_OA.zip`, th
 
 ---
 
+## Google Colab Link
+
+Alternatively you can access the project via Google Colab.
+
+> [Open in Google Colab](https://colab.research.google.com/drive/1ApvzO1V0dZGjkARnRuYS_srvSP2-zwCt?usp=sharing)
+
 This guide provides step-by-step instructions to build, deploy, and test the DRAL-OA (Deep Reinforcement Alignment Learning - Ontology Alignment) matcher using Docker.
 
 ## Prerequisites
